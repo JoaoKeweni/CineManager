@@ -1,4 +1,4 @@
-package br.com.alura.cinemanager.modelos;
+package br.com.alura.screenmatch.calculos;
 
 public interface Classificavel {
     int getClassificacao();
