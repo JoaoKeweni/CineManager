@@ -1,7 +1,5 @@
 package br.com.alura.screenmatch.principal;
 
-import br.com.alura.screenmatch.modelos.Filme;
-import br.com.alura.screenmatch.modelos.Serie;
 import br.com.alura.screenmatch.modelos.Titulo;
 import br.com.alura.screenmatch.modelos.TituloOmdb;
 import com.google.gson.Gson;
@@ -11,7 +9,7 @@ import java.net.URI;
 import java.net.http.HttpClient;
 import java.net.http.HttpRequest;
 import java.net.http.HttpResponse;
-import java.util.*;
+import java.util.Scanner;
 
 public class PrincipalComListas {
     public static void main(String[] args) throws IOException, InterruptedException {
@@ -35,6 +33,13 @@ public class PrincipalComListas {
         Gson gson = new Gson();
 
         TituloOmdb meuTituloOmdb = gson.fromJson(json, TituloOmdb.class);
-        System.out.println(meuTituloOmdb);
+        try{
+            Titulo meuTitulo = new Titulo(meuTituloOMDB);
+            System.out.println("Titullo já convertido: ");
+            System.out.println(meuTituloOMDB);
+        }catch (NumberFormatException e){
+            System.out.println("Aconteceu um erro");
+            System.out.println(e.getMessage());
+        }
     }
 }
